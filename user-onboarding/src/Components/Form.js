@@ -1,12 +1,12 @@
 import React from 'react';
 
 export default function Form(props){
-    const {values, disabled, update, submit} = props;
+    const {values, disabled, change, submit, errors} = props;
 
     const onChange = event => {
-        const {value, type, name, checked} = event;
+        const {value, type, name, checked} = event.target;
         const valueToUse = type === 'checkbox' ? checked: value;
-        update(name, valueToUse);
+        change(name, valueToUse);
     }
 
     const onSubmit = event =>{
@@ -14,9 +14,8 @@ export default function Form(props){
         submit();
     }
 
-    console.log('values is: ', values);
     return (
-        <Form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
             <label>First Name
                 <input 
                     name='first_name'
@@ -67,6 +66,6 @@ export default function Form(props){
                 />
             </label>
             <button disabled={disabled}>Submit</button>
-        </Form>
+        </form>
     )
 }

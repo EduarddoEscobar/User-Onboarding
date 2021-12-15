@@ -20,20 +20,16 @@ function App() {
   const [friends, setFriends] = useState([]);
   const [disabled, setDisabled] = useState(true);
 
-  useEffect(() => {
-    setFriends(data);
-  }, [])
-
-  const update = (name, value) => {
-    validate(name, value);
-    setFormValues({ ...formValues, [name]:value});
-  }
-
   const validate = (name, value) => {
     yup.reach(schema, name)
       .validate(value)
       .then(() => setFormErrors({ ...formErrors, [name]: ''}))
       .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}));
+  }
+
+  const formUpdate = (name, value) => {
+    validate(name, value);
+    setFormValues({ ...formValues, [name]:value});
   }
 
   const postNewFriend = newFriend => {
@@ -44,7 +40,7 @@ function App() {
       .finally(() => setFormValues(initialFormValues));
   }
 
-  const submit = () => {
+  const formSubmit = () => {
     const newFriend = {
       first_name: formValues.first_name.trim(),
       last_name: formValues.last_name.trim(),
@@ -56,10 +52,16 @@ function App() {
     postNewFriend(newFriend);
   }
 
+  useEffect(() => {
+    schema.isValid(formValues).then(valid => setDisabled(!valid));
+  }, [formValues])
+
+  useEffect(() => {setFriends(data)}, []);
+
   return (
     <div className="App">
-      <Form values={formValues} submit={submit} update={update} disabled={disabled}/>
-      {friends.map((friend, index) => (<Friend key={index} friend={friend}/> ))}
+      <Form values={formValues} submit={formSubmit} change={formUpdate} disabled={disabled} errors={formErrors}/>
+      {friends.map((friend, index)=> (<Friend key={index} friend={friend}/> ))}
     </div>
   );
 }

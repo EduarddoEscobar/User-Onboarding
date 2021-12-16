@@ -7,14 +7,14 @@ import * as yup from 'yup';
 import schema from './Validation/formSchema';
 
 const data = [
-  {first_name: 'John', last_name: 'Doe', email: 'johndoe@example.com', password: 'password123', tos: true},
-  {first_name: 'Johny', last_name: 'Doey', email: 'johnydoey@example.com', password: 'password123', tos: true},
+  {name: 'John Doe', email: 'johndoe@example.com', password: 'password123', tos: true},
+  {name: 'Johny Doey', email: 'johnydoey@example.com', password: 'password123', tos: true},
 ]
 
 function App() {
   
-  const initialFormValues = {first_name:'', last_name:'', email:'', password:'', tos:false};
-  const initialFormErrors = {first_name:'', last_name:'', email:'', password:'', tos:''};
+  const initialFormValues = {name:'', email:'', password:'', tos:false};
+  const initialFormErrors = {name:'', email:'', password:'', tos:''};
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [users, setUsers] = useState([]);
@@ -43,8 +43,7 @@ function App() {
 
   const formSubmit = () => {
     const newUser = {
-      first_name: formValues.first_name.trim(),
-      last_name: formValues.last_name.trim(),
+      name: formValues.name.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
       tos: formValues.tos

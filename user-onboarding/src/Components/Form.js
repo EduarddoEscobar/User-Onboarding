@@ -17,24 +17,14 @@ export default function Form(props){
     return (
         <form onSubmit={onSubmit}>
             <div className="form-inputs">
-                <label>First Name
+                <label>Name
                     <input 
-                        name='first_name'
-                        value={values.first_name}
+                        name='name'
+                        value={values.name}
                         onChange={onChange}
                         type='text'
 
                     />            
-                </label>
-
-                <label>Last Name
-                    <input 
-                        name='last_name'
-                        value={values.last_name}
-                        onChange={onChange}
-                        type='text'
-
-                    />
                 </label>
 
                 <label>Email
@@ -69,8 +59,7 @@ export default function Form(props){
                 <div className='form-submit'>
                     <button disabled={disabled}>Submit</button>
                     <div className='errors'>
-                        <div>{errors.first_name}</div>
-                        <div>{errors.last_name}</div>
+                        <div>{errors.name}</div>
                         <div>{errors.email}</div>
                         <div>{errors.password}</div>
                         <div>{errors.tos}</div>

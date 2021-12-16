@@ -1,16 +1,11 @@
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-    first_name: yup
+    name: yup
         .string()
         .trim()
-        .required('You forgot to put in your first name!')
-        .min(3, 'You got too short of a first name choose a different one!'),
-    last_name: yup
-        .string()
-        .trim()
-        .required('You forgot to put in your last name!')
-        .min(3, 'You got too short of a last name choose a different one!'),
+        .required('You forgot to put in your name!')
+        .min(3, 'You got too short of a name choose a different one!'),
     email: yup
         .string()
         .email('You have to enter an email.')

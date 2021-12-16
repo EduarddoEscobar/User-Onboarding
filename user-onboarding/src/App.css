@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+div.content{
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.userList{
+  display: flex;
+  justify-content: space-between;
+  height: 25vh;
+  overflow: scroll;
+}
+
+form{
+  display: flex;
+  border: 1px solid blue;
+  width: 50%;
+}
+
+form div.form-inputs{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+form div.form-inputs label{
+  display: flex;
+  justify-content: space-between;
+}
+
+form div.form-inputs *{
+  width: 80%;
+}
+

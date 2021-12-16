@@ -25,7 +25,6 @@ function App() {
       .validate(value)
       .then(() => {
         setFormErrors({ ...formErrors, [name]: ''});
-        console.log(formErrors);
       }).catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}));
   }
 
@@ -50,7 +49,6 @@ function App() {
       password: formValues.password.trim(),
       tos: formValues.tos
     }
-
     postNewUser(newUser);
   }
 
@@ -62,8 +60,12 @@ function App() {
 
   return (
     <div className="App">
-      <Form values={formValues} submit={formSubmit} update={formUpdate} disabled={disabled} errors={formErrors}/>
-      {users.map((user, index)=> (<User key={index} user={user}/> ))}
+      <div className="content">
+        <Form values={formValues} submit={formSubmit} update={formUpdate} disabled={disabled} errors={formErrors}/>
+        <div className="userList">
+          {users.map((user, index)=> (<User key={index} user={user}/> ))}
+        </div>
+      </div>
     </div>
   );
 }

@@ -16,68 +16,67 @@ export default function Form(props){
 
     return (
         <form onSubmit={onSubmit}>
-            
-            <label>First Name
-                <input 
-                    name='first_name'
-                    value={values.first_name}
-                    onChange={onChange}
-                    type='text'
+            <div className="form-inputs">
+                <label>First Name
+                    <input 
+                        name='first_name'
+                        value={values.first_name}
+                        onChange={onChange}
+                        type='text'
 
-                />            
-            </label>
+                    />            
+                </label>
 
-            <label>Last Name
-                <input 
-                    name='last_name'
-                    value={values.last_name}
-                    onChange={onChange}
-                    type='text'
+                <label>Last Name
+                    <input 
+                        name='last_name'
+                        value={values.last_name}
+                        onChange={onChange}
+                        type='text'
 
-                />
-            </label>
+                    />
+                </label>
 
-            <label>Email
-                <input 
-                    name='email'
-                    value={values.email}
-                    onChange={onChange}
-                    type='email'
+                <label>Email
+                    <input 
+                        name='email'
+                        value={values.email}
+                        onChange={onChange}
+                        type='email'
 
-                />
-            </label>
+                    />
+                </label>
 
-            <label>Password
-                <input 
-                    name='password'
-                    value={values.password}
-                    onChange={onChange}
-                    type='password'
+                <label>Password
+                    <input 
+                        name='password'
+                        value={values.password}
+                        onChange={onChange}
+                        type='password'
 
-                />
-            </label>
+                    />
+                </label>
 
-            <label>Terms of Service
-                <input 
-                    name='tos'
-                    checked={values.tos}
-                    onChange={onChange}
-                    type='checkbox'
+                <label>Terms of Service
+                    <input 
+                        name='tos'
+                        checked={values.tos}
+                        onChange={onChange}
+                        type='checkbox'
 
-                />
-            </label>
-            <div className='form-submit'>
-                <button disabled={disabled}>Submit</button>
-                <div className='errors'>
-                    <div>{errors.first_name}</div>
-                    <div>{errors.last_name}</div>
-                    <div>{errors.email}</div>
-                    <div>{errors.password}</div>
-                    <div>{errors.tos}</div>
+                    />
+                </label>
+                <div className='form-submit'>
+                    <button disabled={disabled}>Submit</button>
+                    <div className='errors'>
+                        <div>{errors.first_name}</div>
+                        <div>{errors.last_name}</div>
+                        <div>{errors.email}</div>
+                        <div>{errors.password}</div>
+                        <div>{errors.tos}</div>
+                    </div>
                 </div>
             </div>
-            
-            
         </form>
     )
 }
